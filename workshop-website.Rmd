@@ -1,0 +1,62 @@
+---
+layout: page
+title: 소프트웨어 카펜트리
+subtitle: 워크샵 웹사이트
+author:
+    name: Tidyverse Korea
+    url: https://www.facebook.com/groups/tidyverse/
+    affiliation: Tidyverse Korea
+date: "`r Sys.Date()`"
+output:
+  html_document: 
+    toc: yes
+    toc_float: true
+    highlight: tango
+    code_folding: show
+    number_section: true
+    self_contained: true
+editor_options: 
+  chunk_output_type: console
+---
+
+
+``` {r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE,
+                      comment="", digits = 3, tidy = FALSE, prompt = FALSE, fig.align = 'center')
+
+```
+
+# 카펜트리 웹사이트 제작 [^ruby-jekyll] {#software-carpentry-website}
+
+[^ruby-jekyll]: [Do-It-Yourselfer:Dreaming Maker(2017), "윈도우에서 지킬 설치하기"](https://blog.psangwoo.com/coding/2017/04/02/install-jekyll-on-windows.html)
+
+소프트웨어 카펜트리 워크샵을 생성하기 위해서는 다음과 같은 절차에 맞춰 작업한다.
+
+1. GitHub 계정을 생성한다.
+1. [GitHub's importer](https://github.com/new/import)로 이동한다.
+1. `YYYY-MM-DD-site` 규정에 맞춰 워크샵 웹사이트를 생성한다.
+1. `git clone`을 통해서 로컬 컴퓨터로 가져온 후 워크샵 내용을 채워넣고 웹사이트 구축작업을 완료한다.
+
+# 워크샵 사이트 툴체인 {#software-carpentry-website-toolchain}
+
+소프트웨어 카펜트리 워크샵 웹사이트는 재킬(Jakyll) 기반으로 되어 있다. 따라서 루비를 비롯한 관련 툴체인을 구축해야 원하는 결과물을 로컬에서 실시간으로 확인이 가능하다. [Do-It-Yourselfer:Dreaming Maker(2017), "윈도우에서 지킬 설치하기"](https://blog.psangwoo.com/coding/2017/04/02/install-jekyll-on-windows.html) 웹사이트에서 자세한 설치내용을 참고한다.
+
+1. 루비설치 
+    - [RubyInstaller Downloads](https://rubyinstaller.org/downloads/)에서 `DEVKIT`을 설치한다.
+1. Ruby DevKit 설치
+1. Jekyll 및 부가기능 설치하기
+1. 기타 Jekyll 관련 툴설치
+
+```{r gem-install, eval=FALSE}
+$ gem install minima
+$ gem install bundler
+$ gem install jekyll-feed
+$ gem install tzinfo-data
+```
+
+# 워크샵 사이트 컴파일 {#software-carpentry-website-compile}
+
+루비와 재킬 툴체인이 구축되었다면, `jekyll build` 혹은 `jekyll serve` 명령어를 통해서 로컬 컴퓨터에서 카펜트리 워크샵 웹사이트 구축된 것을 확인할 수 있다.
+
+웹브라우져를 열고 `http://127.0.0.1:4000`, 혹은 `http://localhost:4000`를 실행하게 되면 작업중인 카펜트리 웹사이트의 결과물을 확인할 수 있다.
+
